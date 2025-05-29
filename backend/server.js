@@ -13,14 +13,15 @@ const examRoutes = require("./routes/exams")
 const monitoringRoutes = require("./routes/monitoring")
 
 const app = express()
-app.use(
-    cors({
-        origin: ["https://tiffinbox321.netlify.app", "http://localhost:5173"],
-        credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization']
-    })
-)
+app.use(cors({
+    origin: ["https://tiffinbox321.netlify.app", "http://localhost:5173"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "Origin", "X-Requested-With", "Accept"],
+    exposedHeaders: ["Access-Control-Allow-Origin"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+}));
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`)

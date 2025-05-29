@@ -4,8 +4,10 @@ import axios from "axios"
 import App from "./App"
 
 axios.defaults.baseURL = "https://tiffinbox-sqem.onrender.com"
-
 axios.defaults.withCredentials = true
+axios.defaults.headers.common["Content-Type"] = "application/json"
+axios.defaults.headers.common["Access-Control-Allow-Credentials"] = true
+axios.defaults.headers.common["Access-Control-Allow-Origin"] = "https://tiffinbox321.netlify.app"
 
 axios.interceptors.request.use(
     (config) => {
