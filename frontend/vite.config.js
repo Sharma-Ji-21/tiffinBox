@@ -6,7 +6,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://tiffinbox-sqem.onrender.com',
-    },
-  },
+      '/api': {
+        target: 'https://tiffinbox-sqem.onrender.com',
+        changeOrigin: true,
+        secure: false,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+        }
+      }
+    }
+  }
 })
