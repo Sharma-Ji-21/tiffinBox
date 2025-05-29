@@ -15,7 +15,7 @@ const monitoringRoutes = require("./routes/monitoring")
 const app = express()
 app.use(
     cors({
-        origin: ["https://tiffinbox123.netlify.app/", "https://tiffinbox123.netlify.app/"], 
+        origin: ["https://tiffinbox321.netlify.app/", "https://tiffinbox321.netlify.app/"], 
         credentials: true,
     }),
 )
